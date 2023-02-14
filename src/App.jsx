@@ -115,7 +115,6 @@ function App() {
           path="/turfAdmin/changePassword/:email"
           element={<ChangePasswordTurf />}
         />
-
         <Route path="/turfAdmin/register" element={<Registration />} />
         <Route path="/turfAdmin/login" element={<Login />} />
         <Route path="/turfAdmin/login" element={<Login />} />
