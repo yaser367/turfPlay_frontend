@@ -1,0 +1,24 @@
+.userStatus{
+    padding: 5px;
+    border-radius: 5px;
+
+    &.success{
+
+        background-color: rgba(0,128,0,0.05);
+        color: green;
+    }
+    &.pending{
+        background-color:rgba(255, 0, 0,0.05);
+        color: blue;
+    }
+}
+
+.paymentType{
+
+    &.Full{
+        color: green;
+    }
+    &.Advance{
+        color: blueviolet;
+    }
+}
