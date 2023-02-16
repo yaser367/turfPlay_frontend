@@ -146,3 +146,18 @@ export async function addSlot (id,slot,date,game){
     
   }
 }
+
+export async function getSlot (id,game,date){
+  try {
+    await axios.get("api/turfAdmin/getSlot",{
+      headers:{
+        id:id,
+        game:game,
+        date:date
+      }
+    })
+  } catch (error) {
+    console.log(error);
+    
+  }
+}

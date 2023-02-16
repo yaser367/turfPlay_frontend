@@ -45,7 +45,6 @@ export async function registerUser(credentials) {
       data: { code },
       status,
     } = await axios.get("api/generateOtp");
-    console.log(code);
     let sentcode = code;
     let text = `Your account verification OTP is ${code}. Verify and enjoy with us.`;
     if (status === 201) {
@@ -167,6 +166,7 @@ export async function getFilteredData(game) {
     return Promise.reject({ error });
   }
 }
+
 
 export async function checkout(amount) {
   try {

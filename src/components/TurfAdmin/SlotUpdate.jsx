@@ -7,6 +7,7 @@ import CalenderComp from "../CalenderComp";
 import RowRadioButtonsGroup from "../RowRadioButtonsGroup";
 import Modal from "./Modal";
 import TimeSlot from "./TimeSlot";
+import useFetch from "../../hooks/fetch.hook";
 
 export default function SlotUpdate({ modal, setModal }) {
   const [mod, setMod] = useState(false);
@@ -16,6 +17,7 @@ export default function SlotUpdate({ modal, setModal }) {
   const [game, setGame] = useState("");
   const { id } = useParams();
   const [date, setDate] = useState(new Date());
+  const [{ isLoading, apiData, serverError }] = useFetch(`getOneTurf/${id}`);
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -59,20 +61,22 @@ export default function SlotUpdate({ modal, setModal }) {
     "23",
     "24",
   ];
-  useEffect(() => {
-    setTime(times);
-  }, []);
-  const handleSubmit = () => {
-    const addSlotPromise = addSlot(id, slot, date,game);
-    toast.promise(addSlotPromise,{
-      loading:"updating..",
-      success:<b>Slot added</b>,
-      error:<b>can't update</b>
-    })
-    addSlotPromise.then(()=>{
-
-    })
+  // useEffect(() => {
+  //   setTime(times);
+  // }, []);
+  const handleTime = (time) => {
+    setTime(time);
   };
+  const handleSubmit = () => {
+    const addSlotPromise = addSlot(id, slot, date, game);
+    toast.promise(addSlotPromise, {
+      loading: "updating..",
+      success: <b>Slot added</b>,
+      error: <b>can't update</b>,
+    });
+    addSlotPromise.then(() => {});
+  };
+
   return (
     <>
       {modal && (
@@ -85,7 +89,7 @@ export default function SlotUpdate({ modal, setModal }) {
             Header={header}
             message={message}
           /> */}
-      <Toaster position="top-center" reverseOrder={false}></Toaster>
+          <Toaster position="top-center" reverseOrder={false}></Toaster>
 
           <div onClick={toggleModal} className="overlay"></div>
           <div className="p-5">
@@ -124,38 +128,126 @@ export default function SlotUpdate({ modal, setModal }) {
                       <div className="mt-5 ">
                         <p className="">Select the game</p>
 
-                        <input
-                          onChange={(e) => {
-                            setGame(e.target.value);
-                          }}
-                          id="red-radio"
-                          type="radio"
-                          value="fives"
-                          name="game"
-                          class=" mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        />
-                        <label
-                          for="red-radio"
-                          class="mr-5 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >
-                          5x5
-                        </label>
-                        <input
-                          onChange={(e) => {
-                            setGame(e.target.value);
-                          }}
-                          id="red-radio"
-                          type="radio"
-                          value="sevens"
-                          name="game"
-                          class="mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        />
-                        <label
-                          for="red-radio"
-                          class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >
-                          7x7
-                        </label>
+                        {apiData?.fives != "" && "0" && (
+                          <>
+                            <input
+                              onChange={(e) => {
+                                setGame(e.target.value);
+                              }}
+                              id="red-radio"
+                              type="radio"
+                              value="fives"
+                              name="game"
+                              class=" mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="red-radio"
+                              class="mr-5 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                              football-5s
+                            </label>
+                          </>
+                        )}
+                        {apiData?.sevens != "" && "0" && (
+                          <>
+                            <input
+                              onChange={(e) => {
+                                setGame(e.target.value);
+                              }}
+                              id="red-radio"
+                              type="radio"
+                              value="fives"
+                              name="game"
+                              class=" mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="red-radio"
+                              class="mr-5 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                              football-7s
+                            </label>
+                          </>
+                        )}
+                        {apiData?.elevens != "" && "0" && (
+                          <>
+                            <input
+                              onChange={(e) => {
+                                setGame(e.target.value);
+                              }}
+                              id="red-radio"
+                              type="radio"
+                              value="fives"
+                              name="game"
+                              class=" mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="red-radio"
+                              class="mr-5 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                              football-11s
+                            </label>
+                          </>
+                        )}
+                        {apiData?.cricket != "" && "0" && (
+                          <>
+                            <input
+                              onChange={(e) => {
+                                setGame(e.target.value);
+                              }}
+                              id="red-radio"
+                              type="radio"
+                              value="cricket"
+                              name="game"
+                              class=" mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="red-radio"
+                              class="mr-5 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                              cricket
+                            </label>
+                          </>
+                        )}
+                        {apiData?.tennis != "" && "0" && (
+                          <>
+                            <input
+                              onChange={(e) => {
+                                setGame(e.target.value);
+                              }}
+                              id="red-radio"
+                              type="radio"
+                              value="tennis"
+                              name="game"
+                              class=" mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="red-radio"
+                              class="mr-5 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                              tennis
+                            </label>
+                          </>
+                        )}
+                        {apiData?.otherCount != "" && "0" && (
+                          <>
+                            <input
+                              onChange={(e) => {
+                                setGame(e.target.value);
+                              }}
+                              id="red-radio"
+                              type="radio"
+                              value={apiData?.other}
+                              name="game"
+                              class=" mt-4 w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            />
+                            <label
+                              for="red-radio"
+                              class="mr-5 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            >
+                              {apiData?.other}
+                            </label>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
