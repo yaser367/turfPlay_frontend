@@ -50,14 +50,15 @@ function App() {
           </AuthorizeUser>
         }
       />
-      <Route
+      {/* <Route
         path="/login"
         element={
           <homeAuth>
             <UserName />
           </homeAuth>
         }
-      />
+      /> */}
+      <Route path="/login" element={<UserName />} />
       <Route
         path="/"
         element={
