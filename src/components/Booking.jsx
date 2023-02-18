@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import turf1 from "../assets/turf1.jpg";
 import { getFilteredData } from "../helper/helperUser";
 import useFetch from "../hooks/fetch.hook";
 import "../styles/Booking.css";
@@ -207,7 +206,7 @@ const Booking = () => {
                       key={idx}
                       className="cursor-pointer  h-[300px]  bg-white rounded-lg "
                     >
-                      <img src={turf1} className="h-[130px] w-full" alt="" />
+                      <img src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697349/turf1_vazm7c.jpg' className="h-[130px] w-full" alt="" />
                       <p className="text-center font-bold truncate">
                         {turf?.TurfName}
                       </p>
@@ -234,7 +233,7 @@ const Booking = () => {
                       key={idx}
                       className="cursor-pointer  h-[300px]  bg-white rounded-lg "
                     >
-                      <img src={turf1} className="h-[130px] w-full" alt="" />
+                      <img src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697349/turf1_vazm7c.jpg' className="h-[130px] w-full" alt="" />
                       <p className="text-center font-bold truncate">
                         {t.TurfName}
                       </p>

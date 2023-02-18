@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import avatar from "../assets/avatar.png";
 import toast, { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import { profilevalidation } from "../helper/validateUser";
@@ -74,7 +73,11 @@ const Profile = () => {
                 <label htmlFor="profile">
                   <img
                     className={`${styles.profile_img} ${extend.profile_img}`}
-                    src={apiData?.profile || file || avatar}
+                    src={
+                      apiData?.profile ||
+                      file ||
+                      "https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697293/avatar_d2vzjc.png"
+                    }
                     alt="avatar"
                     name="profile"
                   />

@@ -5,7 +5,6 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useState } from "react";
 import DropzoneComponent from "./DropzoneComponent";
 import { toast, Toaster } from "react-hot-toast";
-import PreviewImage from "./PreviewImage";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiFillCaretDown } from "react-icons/ai";
 import useFetch from "../../hooks/fetch.hook";

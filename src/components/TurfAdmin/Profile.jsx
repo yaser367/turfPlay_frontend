@@ -10,8 +10,6 @@ import { useEffect } from "react";
 import { getTurfAdmin, updateProfile } from "../../helper/helperTurf";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import convertToBase64 from "../../helper/convert";
-import Avatar from "../../assets/avatar.png";
 import axios from "axios";
 
 const Profile = () => {
@@ -94,7 +92,7 @@ const Profile = () => {
                     <div class=" mt-4 font-bold text-gray-700 rounded-full h-[80px] w-[80px] bg-white flex items-center justify-center font-mono cursor-pointer">
                       <img
                         className="rounded-full"
-                        src={profile || Avatar}
+                        src={profile || 'https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697293/avatar_d2vzjc.png'}
                         alt=""
                       />
                     </div>

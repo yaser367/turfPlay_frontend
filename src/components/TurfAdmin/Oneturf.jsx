@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
-import turf1 from "../../assets/turf1.jpg";
-import cricket from "../../assets/cricket.jpg";
 import DataTable from "./DataTable";
 import { BiEdit } from "react-icons/bi";
 import { Tooltip } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { getOneTurf } from "../../helper/helperTurf";
 import useFetch from "../../hooks/fetch.hook";
-import FootballImg from "../../assets/footballGame.jpg";
-import Tennis from "../../assets/Tennis.jpg";
-import Other from "../../assets/AllSports.jpg";
 import SlotUpdate from "./SlotUpdate";
+import TimeSlot from "./TimeSlot";
 
 const Oneturf = () => {
   const [data, setData] = useState("");
@@ -21,6 +17,7 @@ const Oneturf = () => {
   const [{ isLoading, apiData, serverError }] = useFetch(
     `turfAdmin/getoneTurf/${id}`
   );
+  const [secondModal,setSecondModal] = useState(false)
   const showModal = () => {
     setModal(true);
   };
@@ -34,9 +31,15 @@ const Oneturf = () => {
   };
 
   return (
+
     <div>
-      <SlotUpdate modal={modal} setModal={setModal} />
+      <TimeSlot secondModal={secondModal} setSecondModal={setSecondModal} />
+      <SlotUpdate modal={modal} secondModal={secondModal} setModal={setModal} setSecondModal={setSecondModal} />
+     
       <div className=" mt-7 pb-5 p-3 ">
+        <div>
+
+        </div>
         <div className="">
           <h2 class="text-center mb-5 text-4xl font-bold leading-tight text-gray-800">
             {apiData?.TurfName}
@@ -93,7 +96,7 @@ const Oneturf = () => {
                   <p className="text-center font-bold">Football</p>
                   <img
                     className="w-[150px] h-[150px]"
-                    src={FootballImg}
+                    src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697347/footballGame_ytgrej.jpg'
                     alt=""
                   />
                 </div>
@@ -101,19 +104,19 @@ const Oneturf = () => {
               {(apiData?.cricket != "" || apiData?.cricket != 0) && (
                 <div className="w-[150px] h-[150px] mx-auto md:mt-0 mt-10 cursor-pointer">
                   <p className="text-center font-bold">Cricket</p>
-                  <img className="w-[150px] h-[150px]" src={cricket} alt="" />
+                  <img className="w-[150px] h-[150px]" src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697347/cricket_rafd4p.jpg' alt="" />
                 </div>
               )}
               {(apiData?.tennis != "" || apiData?.tennis != 0) && (
                 <div className="w-[150px] h-[150px] cursor-pointer">
                   <p className="text-center font-bold">Tennis</p>
-                  <img className="w-[150px] h-[150px]" src={Tennis} alt="" />
+                  <img className="w-[150px] h-[150px]" src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697349/Tennis_owvo86.jpg' alt="" />
                 </div>
               )}
               {(apiData?.otherCount != "" || apiData?.otherCount != 0) && (
                 <div className="w-[150px] h-[150px] cursor-pointer  ">
                   <p className="text-center font-bold">dkllj</p>
-                  <img className="w-[150px] h-[150px]" src={Other} alt="" />
+                  <img className="w-[150px] h-[150px]" src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676698135/AllSports_zbdkce.jpg' alt="" />
                 </div>
               )}
             </div>

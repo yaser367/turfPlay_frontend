@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import avatar from "../assets/avatar.png";
 import toast, { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
 import { passwordValidate } from "../helper/validateUser";
@@ -76,7 +75,7 @@ const Password = () => {
               <div className="profile flex justify-center py-4">
                 <img
                   className={styles.profile_img}
-                  src={apiData?.profile || avatar}
+                  src={apiData?.profile || 'https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697293/avatar_d2vzjc.png'}
                   alt="avatar"
                 />
               </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Avatar from "../../assets/avatar.png";
 import { toast, Toaster } from "react-hot-toast";
 import Modal from "../TurfAdmin/Modal";
 
@@ -134,7 +133,7 @@ const DataTable = ({
                 >
                   <img
                     class="w-10 h-10 rounded-full"
-                    src={Avatar}
+                    src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697293/avatar_d2vzjc.png'
                     alt="Jese image"
                   />
                   <div class="pl-3">

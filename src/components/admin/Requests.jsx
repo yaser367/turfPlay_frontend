@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { acceptReq, getReq, rejectReq } from "../../helper/helperAdmin";
-import Avatar from "../../assets/avatar.png";
 import { toast, Toaster } from "react-hot-toast";
 import Modal from "../TurfAdmin/Modal";
 import { Link } from "react-router-dom";
@@ -172,7 +171,7 @@ const Requests = ({}) => {
                 >
                   <img
                     class="w-10 h-10 rounded-full"
-                    src={Avatar}
+                    src='https://res.cloudinary.com/dxdkwzuyr/image/upload/v1676697293/avatar_d2vzjc.png'
                     alt="Jese image"
                   />
                   <div class="pl-3">
