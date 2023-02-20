@@ -3,14 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { checkout } from "../helper/helperUser";
 import useFetch from "../hooks/fetch.hook";
 import CalenderComp from "./CalenderComp";
-import RowRadioButtonsGroup from "./RowRadioButtonsGroup";
+// import RowRadioButtonsGroup from "./RowRadioButtonsGroup";
 import { getSlot } from "../helper/helperTurf";
-import { Select, Option } from "@material-tailwind/react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 
 const BookNow = ({ user }) => {
   const [date, setDate] = useState(new Date());
@@ -85,7 +79,7 @@ const BookNow = ({ user }) => {
             >
               <p className="text-sm font-bold">Choose a game</p>
               <div className="mt-5">
-                <RowRadioButtonsGroup game={game} setGame={setGame} />
+                {/* <RowRadioButtonsGroup game={game} setGame={setGame} /> */}
               </div>
             </div>
             <div className="flex justify-center mt-4">
