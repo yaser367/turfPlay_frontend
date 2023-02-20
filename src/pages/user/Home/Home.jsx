@@ -9,6 +9,7 @@ import "./home.module.css";
 
 const Home = () => {
   return (
+    <>
     <div className="home w-full">
       <div className="bg-black">
         <Navbar />
@@ -20,6 +21,7 @@ const Home = () => {
       <Thirdcomponent />
       <Footer />
     </div>
+    </>
   );
 };
 
