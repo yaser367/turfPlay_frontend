@@ -8,6 +8,7 @@ import Footer from "../../../components/Footer";
 import "./home.module.css";
 
 const Home = () => {
+
   return (
     <>
     <div className="home w-full">

@@ -14,7 +14,7 @@ const Dashboard = () => {
       navigate("/admin/login");
     }
   }, []);
-  return (
+  reAturn (
     <div className="dash">
       <Sidebar />
       <div className="bg-white homeContainer">

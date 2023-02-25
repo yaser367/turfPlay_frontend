@@ -121,6 +121,8 @@ function App() {
         <Route path="/turfAdmin/login" element={<Login />} />
         <Route path="/turfAdmin/otp/:type/:value" element={<OtpPage />} />
       </Route>
+
+   
     </Routes>
   );
 }
